@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Курс | Кәсіби маман бол!</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f4f7fa;
+            color: #102A43;
+            text-align: center;
+        }
+        header {
+            background-color: #102A43;
+            color: white;
+            padding: 40px 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        header p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        section {
+            padding: 30px 20px;
+        }
+        .btn {
+            background-color: #39FF14;
+            color: #102A43;
+            padding: 14px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #00BFFF;
+            color: white;
+        }
+        footer {
+            background-color: #102A43;
+            color: white;
+            padding: 15px;
+            margin-top: 30px;
+        }
+        #consultForm {
+            display: none;
+            margin-top: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        input[type="text"], input[type="tel"] {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        #sendBtn {
+            background-color: #102A43;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        #sendBtn:hover {
+            background-color: #00BFFF;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>IT Курсы | Білім алып, кәсіби маман бол!</h1>
+        <p>Болашағыңды бүгіннен баста — тегін кеңес ал!</p>
+    </header>
+
+    <section>
+        <h2>Біздің бағыттар:</h2>
+        <p>✅ Іргелі Бағдарламалау (Frontend, Backend)</p>
+        <p>✅ Дизайн және Креатив (UI/UX)</p>
+        <p>✅ Деректермен Жұмыс (Data Science)</p>
+        <p>✅ Жаңа IT-Маркетинг (Digital, SMM)</p>
+
+        <!-- Кеңес алу батырмасы -->
+        <a href="#" class="btn" id="consultBtn">📲 ТЕГІН КЕҢЕС АЛ!</a>
+        <p style="margin-top:10px; font-size:18px; font-weight:bold;">+7 771 671 4712</p>
+
+        <!-- Кеңес алу формасы -->
+        <div id="consultForm">
+            <h3>Өтініш қалдыру</h3>
+            <input type="text" id="name" placeholder="Аты-жөні" required><br>
+            <input type="tel" id="phone" placeholder="Телефон нөмірі" required><br>
+            <button id="sendBtn">Жіберу</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 IT Курсы | Барлық құқықтар қорғалған</p>
+    </footer>
+
+    <script>
+        const consultBtn = document.getElementById('consultBtn');
+        const consultForm = document.getElementById('consultForm');
+        const sendBtn = document.getElementById('sendBtn');
+
+        consultBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            consultForm.style.display = consultForm.style.display === 'none' || consultForm.style.display === '' 
+                ? 'block' 
+                : 'none';
+        });
+
+        sendBtn.addEventListener('click', () => {
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            if (name && phone) {
+                const message = Сәлеметсіз бе! Мен кеңес алғым келеді.%0A👤 Аты-жөні: ${name}%0A📞 Телефон: ${phone};
+                const whatsappNumber = '77716714712'; // нөмір (8 немесе +7 жазылмайды)
+                const whatsappURL = https://wa.me/${whatsappNumber}?text=${message};
+                window.open(whatsappURL, '_blank');
+
+                document.getElementById('name').value = "";
+                document.getElementById('phone').value = "";
+                consultForm.style.display = 'none';
+            } else {
+                alert('Атыңыз бен нөміріңізді толтырыңыз!');
+            }
+        });
+    </script>
+
+</body>
+</html>
